@@ -1,0 +1,71 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# R code for *Antimicrobial exposure is associated with decreased survival in triple-negative breast cancer*
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+<Paper reference/link to be added here>
+
+## Overview
+
+We used Oncoshare, a breast cancer research database that integrates
+electronic medical records with California Cancer Registry data for
+patients treated for breast cancer at Stanford University Healthcare
+and/or several sites of the community-based Sutter Health network, to
+study the association of antimicrobial exposure during cancer treatment
+and follow-up and survival in the presence of time-varying absolute
+lymphocyte count. In this repository, which we call TNBC_MSM, we provide
+methods to associate an exposure with a survival outcome in the presence
+of a related time-varying covariate. We also provide methods for several
+sensitivity analyses and deidentified datasets for analyses.
+
+## Repository Contents
+
+- R source code (TNBC_MSM/R)
+
+  - poisson_ipwtm.R - *Source code for the function responsible for
+    fitting the Poisson MSM. Adapted from ipw::ipwtm()*
+  - TNBC_analyses.R - *R code for all analyses performed. Output objects
+    are saved in “TNBC_MSM/output”*
+
+- Deidentified datasets (‘TNBC_MSM/data’)
+
+  - clean_meds.xlsx - *medications data presented in Supplemental Table
+    1*
+  - TNBC_data_baseline.rds - *deidentified baseline cross-sectional data
+    with embedded labels. Available upon request.*
+  - TNBC_data_longitudinal.rds - *deidentified baseline longitudinal
+    data with embedded labels. Available upon request.*
+
+- TNBC_Results.Rmd - *Rmarkdown file responsible for rendering all
+  tables and figures. Outputs “TNBC_Results.html” as final report
+  document.*
+
+## System Requirements
+
+**Hardware Requirements:** the TNBC_MSM repository requires a standard
+computer with a minimum of 2 GB of RAM. The runtimes below are generated
+using a M1 Macbook Pro, 16 Gb RAM, macOS Version 13.2.1.
+
+**Software Requirements:** before setting up the TNBC_MSM repository,
+users should have R version 4.1.0 or higher (available at
+(<https://cran.rstudio.com/>)
+
+The installation of R should take about 20 seconds.
+
+## Installation Guide
+
+**Package dependencies:** users should install the following packages
+prior to installing TNBC_MSM, from an R terminal: `dplyr`, `ggplot2`,
+`ipw`, `survival`, `survminer`, `finalfit`, `table1`, `geepack`,
+`forcats`, `forestplot`, `gtsummary`, `patchwork`.
+
+**Demo and Results:** to run the analyses and render the final html
+report, the user should compile the `.Rmd` files by submitting the line
+below on the R console.
+
+``` r
+rmarkdown::render('TNBC_Results.Rmd')
+```
